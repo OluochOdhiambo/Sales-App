@@ -40,6 +40,8 @@ export const categories = [
 export const products = [
   {
     _id: 1,
+    category: "Yohgurt",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",
@@ -47,6 +49,8 @@ export const products = [
   },
   {
     _id: 2,
+    category: "Yohgurt",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",
@@ -54,6 +58,8 @@ export const products = [
   },
   {
     _id: 3,
+    category: "Milk",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",
@@ -61,6 +67,8 @@ export const products = [
   },
   {
     _id: 4,
+    category: "Milk",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",
@@ -68,6 +76,8 @@ export const products = [
   },
   {
     _id: 5,
+    category: "Yohgurt",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",
@@ -75,6 +85,8 @@ export const products = [
   },
   {
     _id: 6,
+    category: "Yohgurt",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",
@@ -82,6 +94,8 @@ export const products = [
   },
   {
     _id: 7,
+    category: "Yohgurt",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",
@@ -89,6 +103,8 @@ export const products = [
   },
   {
     _id: 8,
+    category: "Yohgurt",
+    sub_category: "",
     title: "Greek Yoghurt",
     price: 2000,
     desc: "some fairly long description",

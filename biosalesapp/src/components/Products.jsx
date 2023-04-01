@@ -34,7 +34,7 @@ function Products({ category, filters, sort }) {
           Object.entries(filters).every(([key, value]) => item[key] === value)
         )
       );
-  }, [products, category, filters]);
+  }, [category, filters]);
 
   useEffect(() => {
     if (sort === "newest") {
