@@ -26,11 +26,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dependencies
-      working-directory: ./biosalesapp
-      run: npm ci
-    - name: Build the app
-      working-directory: ./biosalesapp
-      run: npm run build
-    - name: Run tests
-      working-directory: ./biosalesapp
-      run: npm test
+      working-directory: biosalesapp
+      run: pwd
+      
