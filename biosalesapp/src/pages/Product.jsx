@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 // import { publicRequest } from "../requestMethods";
 // import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
+import { products } from "../data";
 
 const Container = styled.div``;
 
@@ -25,7 +26,7 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 90vh;
+  height: 70vh;
   object-fit: contain;
   ${mobile({ height: "40vh" })}
 `;
@@ -131,15 +132,15 @@ function Product() {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const getProduct = async () => {
-  //     try {
-  //       const res = await publicRequest.get("/products/find/" + id);
-  //       setProduct(res.data);
-  //     } catch {}
-  //   };
-  //   getProduct();
-  // }, [id]);
+  useEffect(() => {
+    const getProduct = () => {
+      try {
+        const currProduct = products.find((prod) => prod._id === parseInt(id));
+        setProduct(currProduct);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
 
   const handleQuantity = (type) => {
     if (type === "dec") {
@@ -161,13 +162,12 @@ function Product() {
 
       <Wrapper>
         <ImgContainer>
-          <Image src={product.img} />
+          <Image src={product?.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>{product.title}</Title>
-          <Brand>{product.brand}</Brand>
-          <Desc>{product.description}</Desc>
-          <Price>{product.price} ksh</Price>
+          <Title>{product?.title}</Title>
+          <Brand>{product?.sub_category}</Brand>
+          <Desc>{product?.description}</Desc>
           {/* <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
