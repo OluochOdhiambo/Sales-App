@@ -96,6 +96,7 @@ const Right = styled.div`
   flex: 1;
   align-items: center;
   justify-content: flex-end;
+  margin: 0 1rem 0 0;
   ${mobile({ justifyContent: "center", flex: 1, marginRight: "10px" })}
 `;
 
@@ -154,6 +155,7 @@ const DropItem = styled.div`
 
 function Navbar() {
   const user = false;
+  const quantity = 3;
   const [drop, setDrop] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -192,9 +194,9 @@ function Navbar() {
           </UserAuth>
           <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
             <MenuItem>
-              {/* <Badge badgeContent={} color="primary">
-                  <ShoppingCartOutlined />
-                </Badge> */}
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
             </MenuItem>
           </Link>
         </Right>
