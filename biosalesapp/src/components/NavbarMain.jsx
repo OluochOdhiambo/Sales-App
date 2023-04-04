@@ -14,7 +14,7 @@ import {
 import React, { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 4rem;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${mobile({ padding: "10px" })}
+  ${mobile({ padding: "0 10px" })}
 `;
 
 const Center = styled.div`
@@ -43,15 +43,6 @@ const Language = styled.span`
   font-size: 14px;
   margin: 0 5px;
   ${mobile({ display: "none" })}
-`;
-const SearchContainerTop = styled.span`
-  border: 1px solid lightgray;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  padding: 2px;
-  display: none;
-  ${mobile({ height: "20px", display: "flex" })}
 `;
 
 const SearchContainer = styled.span`
@@ -78,11 +69,6 @@ const Left = styled.div`
   text-align: center;
   margin: 0 0 0 1rem;
   ${mobile({ flex: 2, textAlign: "left" })}
-`;
-
-const Logo = styled.a`
-  height: 100%;
-  ${mobile({ width: "100%" })}
 `;
 
 const LogoImage = styled.img`
@@ -157,7 +143,6 @@ function Navbar() {
   const user = false;
   const quantity = useSelector((state) => state.cart.quantity);
   const [drop, setDrop] = useState(false);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleClick = (e) => {

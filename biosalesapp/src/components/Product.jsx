@@ -6,7 +6,9 @@ import {
   SearchOutlined,
   FavoriteBorderOutlined,
 } from "@mui/icons-material";
+import { addProduct } from "../redux/cartRedux";
 import { mobile } from "../responsive";
+import { useDispatch } from "react-redux";
 
 const Info = styled.div`
   opacity: 0;
@@ -27,7 +29,7 @@ const Info = styled.div`
 const Container = styled.div`
   flex: 1;
   margin: 5px;
-  min-width: 280px;
+  min-width: 250px;
   max-width: calc(50% - 10px);
   height: 350px;
   display: flex;
@@ -41,7 +43,7 @@ const Container = styled.div`
     opacity: 1;
   }
 
-  ${mobile({ height: "300px" })}
+  ${mobile({ height: "300px", maxWidth: "100%" })}
 `;
 
 const Circle = styled.div`
@@ -68,7 +70,7 @@ const Text = styled.p`
   padding: 10px 10px 0 10px;
 `;
 
-const Icon = styled.div`
+const Icon = styled.a`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -86,6 +88,12 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const addToCart = (product) => {
+    dispatch(addProduct({ ...product, quantity: 1 }));
+  };
+
   return (
     <Container>
       <Circle />
@@ -97,7 +105,12 @@ const Product = ({ item }) => {
         <Text style={{ textAlign: "right" }}>{item?.price} ksh</Text>
       </ProductInfo>
       <Info>
-        <Icon>
+        <Icon
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart(item);
+          }}
+        >
           <ShoppingCartOutlined />
         </Icon>
         <Icon>

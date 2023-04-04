@@ -2,9 +2,10 @@ import { Add, Remove } from "@mui/icons-material";
 import styled from "styled-components";
 // import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavbarMain";
 import { mobile } from "../responsive";
-import { useSelector } from "react-redux";
+import { removeProduct } from "../redux/cartRedux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -157,6 +158,10 @@ const SummaryItemText = styled.span``;
 
 const SummaryItemPrice = styled.span``;
 
+const LinkButton = styled.a`
+  cursor: pointer;
+`;
+
 const Button = styled.button`
   width: 100%;
   padding: 10px;
@@ -169,6 +174,7 @@ const Button = styled.button`
 const Cart = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -177,6 +183,10 @@ const Cart = () => {
     } else {
       window.location.replace("/checkout");
     }
+  };
+
+  const removeCartItem = (product) => {
+    dispatch(removeProduct(product));
   };
 
   return (
@@ -218,13 +228,19 @@ const Cart = () => {
                 </ProductDetail>
                 <PriceDetail>
                   <ProductAmountContainer>
-                    <Add />
+                    <LinkButton>
+                      <Add />
+                    </LinkButton>
                     <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
+                    <LinkButton
+                      onClick={(e) => {
+                        e.preventDefault();
+                        removeCartItem(product);
+                      }}
+                    >
+                      <Remove />
+                    </LinkButton>
                   </ProductAmountContainer>
-                  <ProductPrice>
-                    {product.price * product.quantity} ksh
-                  </ProductPrice>
                 </PriceDetail>
                 <Hr />
               </Product>

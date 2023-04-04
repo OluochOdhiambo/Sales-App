@@ -3,7 +3,7 @@ import { Add, Remove } from "@mui/icons-material";
 import styled from "styled-components";
 // import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavbarMain";
 // import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
 import { useState, useEffect } from "react";
@@ -48,11 +48,6 @@ const Brand = styled.h3`
 
 const Desc = styled.p`
   margin: 20px 0px;
-`;
-
-const Price = styled.span`
-  font-weight: 100;
-  font-size: 40px;
 `;
 
 // const FilterContainer = styled.div`

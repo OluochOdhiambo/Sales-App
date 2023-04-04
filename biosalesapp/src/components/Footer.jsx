@@ -18,11 +18,13 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
   display: flex;
   background-color: #111;
+  flex-wrap: wrap;
   ${mobile({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`
   flex: 1;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -38,12 +40,6 @@ const Logo = styled.div`
 const LogoImg = styled.img`
   width: 150px;
   height: 150px;
-`;
-
-const Desc = styled.p`
-  margin: 20px 0px;
-  font-weight: 500;
-  color: #fff;
 `;
 
 const SocialContainer = styled.div`
@@ -65,12 +61,14 @@ const SocialIcon = styled.div`
 
 const Center1 = styled.div`
   flex: 1;
+  min-width: 250px;
   padding: 20px;
   ${mobile({ display: "none" })}
 `;
 
 const Center2 = styled.div`
   flex: 1;
+  min-width: 250px;
   padding: 20px;
   ${mobile({ display: "none" })}
 `;
@@ -95,6 +93,7 @@ const ListItem = styled.li`
 `;
 
 const Right = styled.div`
+  min-width: 250px;
   flex: 1;
   padding: 20px;
 `;
