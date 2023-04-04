@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 import { useState, useEffect } from "react";
 // import { publicRequest } from "../requestMethods";
-// import { addProduct } from "../redux/cartRedux";
+import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { products } from "../data";
 
@@ -152,7 +152,7 @@ function Product() {
 
   const handleClick = () => {
     console.log("click");
-    // dispatch(addProduct({ ...product, quantity }));
+    dispatch(addProduct({ ...product, quantity }));
   };
 
   return (

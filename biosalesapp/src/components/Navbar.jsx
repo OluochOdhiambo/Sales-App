@@ -86,7 +86,7 @@ const Logo = styled.a`
 `;
 
 const LogoImage = styled.img`
-  height: 100%;
+  height: 55px;
   width: 60px;
 `;
 
@@ -155,7 +155,7 @@ const DropItem = styled.div`
 
 function Navbar() {
   const user = false;
-  const quantity = 3;
+  const quantity = useSelector((state) => state.cart.quantity);
   const [drop, setDrop] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -194,7 +194,7 @@ function Navbar() {
           </UserAuth>
           <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
             <MenuItem>
-              <Badge badgeContent={quantity} color="primary">
+              <Badge badgeContent={quantity || 0} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
             </MenuItem>

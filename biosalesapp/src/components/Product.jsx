@@ -28,6 +28,7 @@ const Container = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
+  max-width: calc(50% - 10px);
   height: 350px;
   display: flex;
   flex-direction: column;
