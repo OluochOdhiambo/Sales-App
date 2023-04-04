@@ -4,9 +4,13 @@ import {
   Facebook,
   Twitter,
   Instagram,
+  YouTube,
+  LinkedIn,
   Room,
   Phone,
   MailOutline,
+  Language,
+  Business,
 } from "@mui/icons-material";
 import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
@@ -14,29 +18,33 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
   display: flex;
   background-color: #111;
+  flex-wrap: wrap;
   ${mobile({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`
   flex: 1;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   padding: 20px;
 `;
 
-const Logo = styled.h1`
-  color: #fff;
-  font-size: 24px;
+const Logo = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
-const Desc = styled.p`
-  margin: 20px 0px;
-  font-weight: 500;
-  color: #fff;
+const LogoImg = styled.img`
+  width: 150px;
+  height: 150px;
 `;
 
 const SocialContainer = styled.div`
   display: flex;
+  margin-bottom: 5rem;
 `;
 
 const SocialIcon = styled.div`
@@ -51,8 +59,16 @@ const SocialIcon = styled.div`
   margin-right: 20px;
 `;
 
-const Center = styled.div`
+const Center1 = styled.div`
   flex: 1;
+  min-width: 250px;
+  padding: 20px;
+  ${mobile({ display: "none" })}
+`;
+
+const Center2 = styled.div`
+  flex: 1;
+  min-width: 250px;
   padding: 20px;
   ${mobile({ display: "none" })}
 `;
@@ -71,12 +87,13 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  width: 50%;
-  margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 5px;
   color: #fff;
 `;
 
 const Right = styled.div`
+  min-width: 250px;
   flex: 1;
   padding: 20px;
 `;
@@ -96,121 +113,63 @@ function Footer() {
   return (
     <Container>
       <Left>
-        <Logo>Bio Food Products</Logo>
-        <Desc>
-          With over 8 years of experience, we supply, sell, hire, and install
-          sound/ audio equipment for places of worship, entertainment joints,
-          campign vehicles/ trucks, live events, podcasts, studios, live
-          streaming and home use with a warranty inclusive of discounted
-          installation and consultation rates. We also offer 24hr support for
-          all our customers. Karibu sana.
-        </Desc>
+        <Logo>
+          <LogoImg src="https://biofoods.co.ke/wp-content/uploads/2020/10/bio-logo-2020.png"></LogoImg>
+        </Logo>
+      </Left>
+      <Center1>
+        <Title>Contact Details</Title>
+        <ContactItem>
+          <Room style={{ marginRight: "10px", color: "#fff" }} />
+          Bio Food Products Ltd. <br />
+          off Road C, Industrial Area <br />
+          after Sameer Industrial Park
+        </ContactItem>
+        <ContactItem>
+          <Business style={{ marginRight: "10px", color: "#fff" }} /> 00506
+          Nairobi, Kenya
+        </ContactItem>
+        <ContactItem>
+          <MailOutline style={{ marginRight: "10px", color: "#fff" }} />{" "}
+          info@biofoods.co.ke
+        </ContactItem>
+        <ContactItem>
+          <Phone style={{ marginRight: "10px", color: "#fff" }} /> +254 20 350
+          3595-8
+        </ContactItem>
+        <ContactItem>
+          <Language style={{ marginRight: "10px", color: "#fff" }} />{" "}
+          www.biofoods.co.ke
+        </ContactItem>
+      </Center1>
+      <Center2>
+        <Logo>
+          <LogoImg src="https://biofoods.co.ke/wp-content/uploads/2020/11/club-bio-white.png"></LogoImg>
+        </Logo>
+      </Center2>
+      <Right>
+        <Title>Follow Us</Title>
         <SocialContainer>
-          <SocialIcon color="#385999">
+          <SocialIcon color="#1877f2">
             <Facebook />
           </SocialIcon>
           <SocialIcon color="#e4405f">
             <Instagram />
           </SocialIcon>
-          <SocialIcon color="#55acee">
+          <SocialIcon color="#00acee">
             <Twitter />
           </SocialIcon>
+          <SocialIcon color="#ff0000">
+            <YouTube />
+          </SocialIcon>
+          <SocialIcon color="#0e76a8">
+            <LinkedIn />
+          </SocialIcon>
         </SocialContainer>
-      </Left>
-      <Center>
-        <Title>Useful Links</Title>
-        <List>
-          <ListItem>
-            <Link to="/live" style={{ textDecoration: "none", color: "#fff" }}>
-              LIVE & PA
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
-              Home
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="/studio"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              STUDIO
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="/studio"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              Cart
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="/dj-equipment"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              DJ-EQUIPMENT
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="/musical-isntruments"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              Order Tracking
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="/personal"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              PERSONAL
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="/account"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              My Account
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="/myOrders"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              MUSICAL INSTRUMENTS
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              to="terms&conditions"
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              Terms
-            </Link>
-          </ListItem>
-        </List>
-      </Center>
-      <Right>
-        <Title>Contact</Title>
-        <ContactItem>
-          <Room style={{ marginRight: "10px", color: "#fff" }} /> Luthuli Ave ,
-          Nairobi, Kenya
-        </ContactItem>
-        <ContactItem>
-          <Phone style={{ marginRight: "10px", color: "#fff" }} /> +254 706 547
-          204
-        </ContactItem>
-        {/* <ContactItem>
-          <MailOutline style={{ marginRight: "10px", color: "#fff" }} />{" "}
-          contact@strik3r.dev
-        </ContactItem> */}
-        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
+
+        <Link to="/privacy">
+          <Title>Privacy Policy</Title>
+        </Link>
       </Right>
     </Container>
   );

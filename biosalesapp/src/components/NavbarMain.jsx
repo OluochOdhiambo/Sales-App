@@ -14,7 +14,7 @@ import {
 import React, { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 4rem;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${mobile({ padding: "10px" })}
+  ${mobile({ padding: "0 10px" })}
 `;
 
 const Center = styled.div`
@@ -43,15 +43,6 @@ const Language = styled.span`
   font-size: 14px;
   margin: 0 5px;
   ${mobile({ display: "none" })}
-`;
-const SearchContainerTop = styled.span`
-  border: 1px solid lightgray;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  padding: 2px;
-  display: none;
-  ${mobile({ height: "20px", display: "flex" })}
 `;
 
 const SearchContainer = styled.span`
@@ -80,13 +71,8 @@ const Left = styled.div`
   ${mobile({ flex: 2, textAlign: "left" })}
 `;
 
-const Logo = styled.a`
-  height: 100%;
-  ${mobile({ width: "100%" })}
-`;
-
 const LogoImage = styled.img`
-  height: 100%;
+  height: 55px;
   width: 60px;
 `;
 
@@ -155,9 +141,8 @@ const DropItem = styled.div`
 
 function Navbar() {
   const user = false;
-  const quantity = 3;
+  const quantity = useSelector((state) => state.cart.quantity);
   const [drop, setDrop] = useState(false);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleClick = (e) => {
@@ -194,7 +179,7 @@ function Navbar() {
           </UserAuth>
           <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
             <MenuItem>
-              <Badge badgeContent={quantity} color="primary">
+              <Badge badgeContent={quantity || 0} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
             </MenuItem>

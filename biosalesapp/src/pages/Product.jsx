@@ -3,12 +3,12 @@ import { Add, Remove } from "@mui/icons-material";
 import styled from "styled-components";
 // import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavbarMain";
 // import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
 import { useState, useEffect } from "react";
 // import { publicRequest } from "../requestMethods";
-// import { addProduct } from "../redux/cartRedux";
+import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { products } from "../data";
 
@@ -48,11 +48,6 @@ const Brand = styled.h3`
 
 const Desc = styled.p`
   margin: 20px 0px;
-`;
-
-const Price = styled.span`
-  font-weight: 100;
-  font-size: 40px;
 `;
 
 // const FilterContainer = styled.div`
@@ -152,7 +147,7 @@ function Product() {
 
   const handleClick = () => {
     console.log("click");
-    // dispatch(addProduct({ ...product, quantity }));
+    dispatch(addProduct({ ...product, quantity }));
   };
 
   return (
